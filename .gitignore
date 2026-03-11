@@ -1,0 +1,12 @@
+data/*
+!data/.gitkeep
+
+models/*
+!models/.gitkeep
+
+*.h5
+*.pt
+*.ckpt
+*.pkl
+*.csv
+*.fits
