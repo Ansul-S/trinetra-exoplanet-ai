@@ -1,21 +1,29 @@
+# Data folders
 data/*
 !data/.gitkeep
 
 models/*
 !models/.gitkeep
 
+# ML model files
 *.h5
 *.pt
 *.ckpt
 *.pkl
+
+# Large data files
 *.csv
 *.fits
 *.npz
-*.fits
-*.h5
 
+# Generated pipeline data
 light_curves/
 phase1_processed_data/
 
+# Python cache
 __pycache__/
 .ipynb_checkpoints/
+
+# Environment secrets
+.env
+*.env
