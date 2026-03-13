@@ -10,3 +10,12 @@ models/*
 *.pkl
 *.csv
 *.fits
+*.npz
+*.fits
+*.h5
+
+light_curves/
+phase1_processed_data/
+
+__pycache__/
+.ipynb_checkpoints/
