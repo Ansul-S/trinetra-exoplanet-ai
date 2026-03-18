@@ -18,7 +18,7 @@ export async function GET(req: NextRequest) {
     else if (tier)      url = `${HF_API}/habitability/earthlike`
     else                url = `${HF_API}/planets`
 
-    const res  = await fetch(url, { next: { revalidate: 60 } })
+    const res = await fetch(url, { cache: 'no-store' })
     const data = await res.json()
     return NextResponse.json(data)
   } catch {
