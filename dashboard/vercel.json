@@ -1,0 +1,8 @@
+{
+  "buildCommand": "next build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "env": {
+    "TRINETRA_API_URL": "https://ansul-s-trinetra-api.hf.space"
+  }
+}

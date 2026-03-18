@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-display);
+  background: #020408;
+  color: #e8edf5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #040D1A; }
+::-webkit-scrollbar-thumb { background: #1A3F6B; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #378ADD; }
+
+/* Selection */
+::selection { background: rgba(55, 138, 221, 0.3); color: #e8edf5; }
+
+/* Glass panel utility */
+.glass {
+  background: rgba(7, 21, 37, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(55, 138, 221, 0.15);
+}
+
+.glass-card {
+  background: rgba(7, 21, 37, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(55, 138, 221, 0.2);
+  border-radius: 12px;
+}
+
+/* Nebula glow behind cards */
+.nebula-glow {
+  position: relative;
+}
+.nebula-glow::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(ellipse at center, rgba(55, 138, 221, 0.06) 0%, transparent 70%);
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Pulsing ring for EARTH-LIKE planets */
+@keyframes planet-pulse {
+  0%, 100% { transform: scale(1);   opacity: 0.8; }
+  50%       { transform: scale(1.5); opacity: 0; }
+}
+
+.pulse-ring {
+  animation: planet-pulse 2.5s ease-out infinite;
+}
+
+/* Scan line animation */
+@keyframes scan-line {
+  0%   { transform: translateX(-100%); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateX(300%); opacity: 0; }
+}
+
+.scan-line {
+  animation: scan-line 3s ease-in-out infinite;
+}
+
+/* Score bar fill animation */
+@keyframes bar-fill {
+  from { width: 0%; }
+}
+
+.bar-animate {
+  animation: bar-fill 1s ease-out forwards;
+}
+
+/* Orbit animation */
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(var(--orbit-r)) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(var(--orbit-r)) rotate(-360deg); }
+}
+
+/* Grid background */
+.bg-grid {
+  background-image: 
+    linear-gradient(rgba(55, 138, 221, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(55, 138, 221, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Loading skeleton shimmer */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(26, 63, 107, 0.3) 25%,
+    rgba(55, 138, 221, 0.1) 50%,
+    rgba(26, 63, 107, 0.3) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Tier badge colors */
+.tier-earthlike { background: rgba(99, 153, 34, 0.15); color: #97C459; border: 1px solid rgba(99, 153, 34, 0.3); }
+.tier-promising { background: rgba(55, 138, 221, 0.15); color: #85B7EB; border: 1px solid rgba(55, 138, 221, 0.3); }
+.tier-hot       { background: rgba(226, 75, 74, 0.15);  color: #F09595; border: 1px solid rgba(226, 75, 74, 0.3); }
+.tier-cold      { background: rgba(24, 95, 165, 0.15);  color: #B5D4F4; border: 1px solid rgba(24, 95, 165, 0.3); }
+.tier-warm      { background: rgba(99, 153, 34, 0.1);   color: #C0DD97; border: 1px solid rgba(99, 153, 34, 0.2); }
+.tier-hostile   { background: rgba(136, 135, 128, 0.15);color: #B4B2A9; border: 1px solid rgba(136, 135, 128, 0.3); }
+.tier-tl        { background: rgba(186, 117, 23, 0.15); color: #FAC775; border: 1px solid rgba(186, 117, 23, 0.3); }
